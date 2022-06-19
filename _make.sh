@@ -33,11 +33,11 @@ rm -rf /tmp/build
 mkdir -p /tmp/build
 
 # Create virtual environment and activate it
-virtualenv -p $PYTHON /tmp/build
-source /tmp/build/bin/activate
+# virtualenv -p $PYTHON /tmp/build
+# source /tmp/build/bin/activate
 
 # Install requirements
-pip install -r /temp/build/requirements.txt --no-cache-dir $DEPS_FLAG
+pip install -r /temp/build/requirements.txt -t "/tmp/build/lib/${PYTHON}/site-packages" --no-cache-dir $DEPS_FLAG
 
 # Create staging area in dir structure req for lambda layers
 mkdir -p "/tmp/base/python/lib/${PYTHON}"
