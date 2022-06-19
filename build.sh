@@ -108,7 +108,7 @@ else
 fi
 
 # Run build
-docker run --rm -e PYTHON_VER="$PYTHON_VER" -e NAME="$NAME" -e RAW_MODE="$RAW_MODE" -e NO_DEPS="$NO_DEPS" -e STRIP="$STRIP" -e PARENT_DIR="${PARENT_DIR}" -e SUBDIR_MODE="$SUBDIR_MODE" -v "$CURRENT_DIR":/var/task -v "$REQ_PATH":/temp/build/requirements.txt -v "$CLEAN_PATH":/temp/build/_clean.sh "lambci/lambda:build-python${PYTHON_VER}" bash /var/task/_make.sh
+docker run --rm -e PYTHON_VER="$PYTHON_VER" -e NAME="$NAME" -e RAW_MODE="$RAW_MODE" -e NO_DEPS="$NO_DEPS" -e STRIP="$STRIP" -e PARENT_DIR="${PARENT_DIR}" -e SUBDIR_MODE="$SUBDIR_MODE" -v "$CURRENT_DIR":/var/task -v "$REQ_PATH":/temp/build/requirements.txt -v "$CLEAN_PATH":/temp/build/_clean.sh "public.ecr.aws/sam/build-python${PYTHON_VER}" bash /var/task/_make.sh
 
 # Move ZIP to parent dir if SUBDIR_MODE set
 if [[ "$SUBDIR_MODE" ]]; then
